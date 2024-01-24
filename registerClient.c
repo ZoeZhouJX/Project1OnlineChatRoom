@@ -210,6 +210,10 @@ int Register(int sockfd, char *buf)
         }
         else
         {
+            hasCapitalEnglish = 0;
+            hasLowercaseEnglish = 0;
+            hasNumbers = 0;
+            hasSpecialCharacters = 0;
             printf("密码不满足注册条件！\n");
             sleep(1);
         }
