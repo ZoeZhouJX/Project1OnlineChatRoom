@@ -7,8 +7,9 @@
 
 #define MAX_CLIENTS 10
 #define MAX_SIZE 1024
+#define SERVER_PORT 8080
 
-typedef struct
+typedef struct client_info
 {
     int socket;
     struct sockaddr_in address;
@@ -95,7 +96,7 @@ int main()
     // 设置服务器地址和端口
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
-    server_addr.sin_port = htons(8080);
+    server_addr.sin_port = htons(SERVER_PORT);
 
     // 绑定服务器地址和端口
     if (bind(server_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1)

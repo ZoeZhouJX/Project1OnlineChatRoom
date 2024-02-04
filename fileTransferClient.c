@@ -5,6 +5,8 @@
 #include <arpa/inet.h>
 
 #define MAX_SIZE 1024
+#define SERVER_PORT 8080
+#define SERVER_IP "127.0.0.1"
 
 int main()
 {
@@ -22,8 +24,8 @@ int main()
 
     // 设置服务器地址和端口
     server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    server_addr.sin_port = htons(8080);
+    server_addr.sin_addr.s_addr = inet_addr(SERVER_IP);
+    server_addr.sin_port = htons(SERVER_PORT);
 
     // 连接到服务器
     if (connect(client_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1)
